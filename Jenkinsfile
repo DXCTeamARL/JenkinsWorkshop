@@ -1,3 +1,5 @@
+library 'SharedLibs'
+
 pipeline {
   agent {
     docker {
@@ -9,6 +11,11 @@ pipeline {
     stage('Maven') {
       steps {
         sh 'mvn -v'
+      }
+    }
+    stage('Shared Lib') {
+      steps {
+        helloWorld("Jenkins")
       }
     }
   }
